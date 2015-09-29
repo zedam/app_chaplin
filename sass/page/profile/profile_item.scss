@@ -1,0 +1,51 @@
+
+.profile-item__container {
+  display: table;
+  float: left;
+  padding: 50px 0;
+  width: 100%;
+}
+
+.profile-item__image {
+  display: table-cell;
+  vertical-align: middle;
+  width: 140px;
+
+  @include respond-to(tablet) {
+    clear: left;
+    display: block;
+    float: left;
+    position: relative;
+  }
+
+  img {
+    border: 3px solid $white;
+    @include box-shadow(2px 2px 3px rgba(0,0,0,0.3));
+  }
+}
+
+.profile-item__link {
+  float: left;
+
+  @include respond-to(tablet) {
+    margin-left: 25px;
+    padding-top: 33px;
+  }
+}
+
+.profile-item__name {
+  @include ff_open_sans_semibold();
+  display: table-cell;
+  font-size: 18px;
+  padding-left: 25px;
+  text-transform: capitalize;
+
+  @include respond-to(tablet) {
+    @include ff_open_sans_semibold();
+    font-style: italic;
+    clear: left;
+    display: block;
+    float: left;
+    padding: 20px 0 0;
+  }
+}

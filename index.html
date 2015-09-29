@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript">
+    WebFontConfig = {
+      google: { families: [ 'Open+Sans:400,600,400italic:latin', 'Lobster::latin' ] }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale = 1.0, user-scalable = no, minimum-scale = 1.0, maximum-scale = 1.0, width = device-width"/>
+
+  <link rel="stylesheet" href="assets/css/main.css" >
+
+  <script src="../bower_components/requirejs/require.js"></script>
+  <script>
+  // Configure the AMD module loader
+  requirejs.config({
+    // The path where your JavaScripts are located
+    baseUrl: './assets/js/',
+    // Specify the paths of vendor libraries
+    paths: {
+      jquery: '../../bower_components/jquery/jquery',
+      underscore: '../../bower_components/lodash/dist/lodash',
+      backbone: '../../bower_components/backbone/backbone',
+      handlebars: '../../bower_components/handlebars/handlebars',
+      text: '../../bower_components/requirejs-text/text',
+      chaplin: '../../bower_components/chaplin/chaplin'
+    },
+    // Underscore and Backbone are not AMD-capable per default,
+    // so we need to use the AMD wrapping of RequireJS
+    shim: {
+      underscore: {
+        exports: '_'
+      },
+      backbone: {
+        deps: ['underscore', 'jquery'],
+        exports: 'Backbone'
+      },
+      handlebars: {
+        exports: 'Handlebars'
+      }
+    }
+    // For easier development, disable browser caching
+    // Of course, this should be removed in a production environment
+    //, urlArgs: 'bust=' +  (new Date()).getTime()
+  });
+
+  // Bootstrap the application
+  require(['application', 'routes'], function(Application, routes) {
+    new Application({routes: routes, controllerSuffix: '-controller'});
+  });
+  </script>
+</head>
+<body>
+
+</body>
+</html>

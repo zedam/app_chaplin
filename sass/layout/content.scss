@@ -1,0 +1,123 @@
+.main__container {
+  padding-top: 40px;
+}
+
+.content__section {
+  @include box-shadow(0 0 200px rgba(0,0,0,.25) inset);
+}
+
+// Hack used for ie8 if we want to render the box-shadow background in this browser
+// it works with css-browser-selector, which prints a class in the html tag
+// for each browser, in this case IE8
+.ie8 .content__section {
+  @include image_no_cover('page/home/background-middle.jpg', 'mobile');
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  position: relative;
+
+  @include respond-to(tablet) {
+    @include image_no_cover('page/home/background-middle.jpg', 'tablet');
+    background-repeat: repeat-y;
+  }
+
+  &:before {
+    @include image_no_cover('page/home/background-top.jpg', 'mobile');
+    @include background-size();
+    content: '';
+    left: 0;
+    padding-bottom: 63.75%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 0;
+
+    @include respond-to(tablet) {
+      @include image_no_cover('page/home/background-top.jpg', 'tablet');
+      padding-bottom: 16.25%
+    }
+  }
+
+  &:after {
+    @include image_no_cover('page/home/background-bottom.jpg', 'mobile');
+    @include background-size();
+    content: '';
+    left: 0;
+    padding-bottom: 63.75%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+
+    @include respond-to(tablet) {
+      @include image_no_cover('page/home/background-bottom.jpg', 'tablet');
+      padding-bottom: 16.25%;
+    }
+  }
+}
+
+.content__container {
+  @include box-sizing();
+  display: table;
+  padding: 15px;
+  position: relative;
+  margin: auto;
+  max-width: 960px;
+  width: 100%;
+  z-index: 4;
+
+  @include respond-to(tablet) {
+    padding: 15px 50px;
+  }
+}
+
+.content__heade-title {
+  @include ff_lobster();
+  color: $base-header-color;
+  font-size: 30px;
+  margin: 30px 0;
+  text-align: center;
+  width: 100%;
+
+  @include respond-to(tablet) {
+    font-size: 60px;
+  }
+}
+
+.content__columns-container {
+  float: left;
+  padding: 0 15px;
+
+  @include respond-to(tablet) {
+    border-collapse: separate;
+    border-spacing: 50px 0;
+    display: table;
+    margin-left: -50px;
+    padding: 0 0 40px;
+    width: calc(100% + 100px); // Depends in the scope, old browser won't accept it.
+  }
+}
+
+.content__column {
+  color: $base-header-color;
+  float: left;
+  font-size: 13px;
+  line-height: 24px;
+  margin-bottom: 40px;
+  text-align: justify;
+  width: 100%;
+
+  @include respond-to(tablet) {
+    display: table-cell;
+    float: none;
+    font-size: 14px;
+    margin-bottom: 0;
+    width: 50%;
+  }
+}
+
+.content__link-back {
+  @include ff_open_sans_italic();
+  float: left;
+  font-size: 16px;
+  margin-top: 40px;
+}

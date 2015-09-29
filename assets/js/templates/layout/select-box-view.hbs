@@ -1,0 +1,11 @@
+<input type="hidden" name="{{name}}" id="{{id}}" value="" placeholder="{{placeholder}}"/>
+<input type="text" name="{{name}}_show" id="{{id}}_shown" class="half_input selectable cf" autocomplete="off" value="" placeholder="{{placeholder}}"/>
+
+<ul class="select_options" data-id="{{id}}">
+
+	{{#each values}}
+	<li>
+		<span data-content="{{value}}">{{content}}</span>
+	</li>
+	{{/each}}
+</ul>

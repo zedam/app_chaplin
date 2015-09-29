@@ -1,0 +1,85 @@
+/* (c) 2015 Bravoure B.V. - bravoure.nl */
+
+/***[ font-face ]******************************************************************************************/
+
+@mixin ff_open_sans() {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+}
+
+@mixin ff_open_sans_semibold() {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+@mixin ff_open_sans_italic() {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-style: italic;
+}
+
+@mixin ff_lobster() {
+    font-family: 'Lobster', cursive;
+    font-weight: normal;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+// only hide and show for javascript enabled browsers
+.js .ff {
+    //@include opacity(0);
+    //@include transition_str((opacity 0.3s 0s ease-in-out, visibility 0s 0s ease-in-out));
+    visibility: hidden;
+}
+.js.wf-active .ff,
+.js.wf-inactive .ff {
+    //@include opacity(1);
+    //@include transition_str((opacity 0.3s 0s ease-in-out, visibility 0s 0s ease-in-out));
+    visibility: visible;
+
+}
+
+
+/***[ typography ]******************************************************************************************/
+
+html {
+    @include ff_open_sans();
+    color: $primary-text;
+    font-size: $base-font-size;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    font-size: inherit;
+}
+
+ol, ul {
+    margin: 0;
+    padding: 20px;
+}
+
+p {
+    line-height: $base-line-height;
+}
+
+a {
+    color: $href-color;
+}
+
+
+/***[ selection ]******************************************************************************************/
+
+::-moz-selection {
+    background: $selection-color;
+    color: $selection-text-color;
+    text-decoration: none;
+    text-shadow: none;
+}
+::selection {
+    background: $selection-color;
+    color: $selection-text-color;
+    text-decoration: none;
+    text-shadow: none;
+}

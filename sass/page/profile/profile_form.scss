@@ -1,0 +1,278 @@
+.form__container {
+  float: left;
+  position: relative;
+  width: 100%;
+
+  &:before {
+    border-top: 2px dashed $base-header-color;
+    content: '';
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.form__opener{
+  @include border-radius(5px);
+  @include transition();
+  background: $base-header-color;
+  content: '';
+  cursor: pointer;
+  height: 42px;
+  left: 50%;
+  position: absolute;
+  margin: -22px 0 0 -22px;
+  top: 0;
+  width: 42px;
+
+  &:hover {
+    background: $base-header-hover-color;
+  }
+
+  &:before,
+  &:after {
+    background: $white;
+    content: '';
+    height: 4px;
+    left: 50%;
+    margin: -2px 0 0 -9px;
+    position: absolute;
+    top: 50%;
+    width: 18px;
+  }
+
+  &:before {
+    @include transform(rotate(90deg));
+  }
+}
+
+.form__opener-container {
+  display: none;
+  float: left;
+  position: relative;
+  width: 100%;
+}
+
+.form__user {
+  @include box-sizing();
+  @include transition();
+  float: left;
+  padding: 20px 0;
+  position: relative;
+  width: 100%;
+
+  @include respond-to(tablet) {
+    display: table;
+    padding: 30px 136px 30px 0;
+  }
+
+  &:before {
+    border-top: 2px dashed $base-header-color;
+    content: '';
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &:after {
+    border-top: 2px dashed $base-header-color;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.form__input-container {
+  @include respond-to(tablet) {
+    @include box-sizing();
+    display: table-cell;
+    padding-left: 0;
+    vertical-align: top;
+    width: 50%;
+  }
+}
+
+.form__select-container {
+  float: left;
+  position: relative;
+  width: 100%;
+
+  @include respond-to(tablet) {
+    @include box-sizing();
+    display: table-cell;
+    float: none;
+    padding-left: 20px;
+    vertical-align: top;
+    width: 25%;
+  }
+
+  &:after {
+    @include transition();
+    border-bottom: 0 solid $base-header-grey;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid $base-header-grey;
+    content: '';
+    height: 0;
+    position: absolute;
+    right: 10px;
+    top: 39px;
+    width: 0;
+
+    @include respond-to(tablet) {
+      top: 19px;
+    }
+  }
+
+  &.active {
+    &:after {
+      @include transform(rotate(180deg));
+    }
+  }
+}
+
+.form__input {
+  @include box-sizing();
+  @include border-radius(4px);
+  @include placeholder($placeholder-color);
+  @include ff_open_sans();
+  background: $white;
+  border: 1px solid $base-header-grey;
+  font-size: 15px;
+  height: 42px;
+  float: left;
+  padding: 0 10px;
+  line-height: normal;
+  width: 100%;
+}
+
+.form__select {
+  @include border-radius(4px);
+  @include ff_open_sans();
+  background: $white;
+  border: 1px solid $base-header-grey;
+  font-size: 15px;
+  height: 42px;
+  line-height: normal;
+  margin-top: 20px;
+  width: 100%;
+
+  @include respond-to(tablet) {
+    margin-top: 0;
+  }
+}
+
+.form__submit-btn {
+  @include border-radius(4px);
+  @include transition();
+  background: $submit-color;
+  border-bottom: 2px solid $submit-color-border;
+  cursor: pointer;
+  float: left;
+  color: $white;
+  font-size: 16px;
+  font-weight: bold;
+  height: 42px;
+  line-height: 42px;
+  margin-top: 20px;
+  padding-left: 20px;
+  text-align: left;
+  width: 116px;
+
+  @include respond-to(tablet) {
+    position: absolute;
+    margin-top: 30px;
+    right: 0;
+    top: 0;
+  }
+
+  &:hover {
+    background: $submit-color-hover;
+    border-bottom: 2px solid $submit-color-border-hover;
+  }
+
+  &:active {
+    background: $submit-color-active;
+    border-top: 2px solid $submit-color-border-active;
+    border-bottom: 2px solid $submit-color-active;
+  }
+}
+
+.selectable, input.selectable {
+  @include border-radius(4px);
+  @include ff_open_sans();
+  @include box-sizing();
+  background: $white;
+  border: 1px solid $base-header-grey;
+  cursor: pointer;
+  font-size: 15px;
+  height: 42px;
+  line-height: normal;
+  margin-top: 20px;
+  padding: 0 10px;
+  width: 100%;
+
+  @include respond-to(tablet) {
+    margin-top: 0;
+  }
+
+  &:active {
+    border-top: 2px solid $base-header-grey;
+  }
+}
+
+ul.select_options {
+  @include border-radius(4px);
+  background: $white;
+  border: 1px solid $base-header-grey;
+  display: none;
+  left: 1px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
+  right: 1px;
+  z-index: 10;
+
+  @include respond-to(tablet) {
+    left: 20px;
+    right: 0;
+  }
+
+  li {
+    @include box-sizing();
+    border-bottom: 1px solid $base-header-grey2;
+    float: left;
+    list-style: none;
+    padding: 0;
+    position: relative;
+    width: 100%;
+
+    &:last-child {
+      border-bottom: 0 solid;
+    }
+
+    span, a {
+      @include box-sizing();
+      @include ff_open_sans();
+      cursor: pointer;
+      color: $base-header-color;
+      float: left;
+      font-size: 15px;
+      height: 42px;
+      line-height: 42px;
+      margin-top: 0px;
+      padding: 0 10px;
+      text-decoration: none;
+      width: 100%;
+
+      &:hover {
+        background: $base-header-input-hover;
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+header {
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+
+  &:after {
+    @include image('layout/header_background.png', 'mobile');
+    content: '';
+    height: 81px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 146px;
+    z-index: 1;
+  }
+
+  &:before {
+    background-color: $base-header-color;
+    content: '';
+    height: 42px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+.header__logo {
+  float: left;
+  margin: 9px 0 0 11px;
+  position: relative;
+  z-index: 2;
+}
