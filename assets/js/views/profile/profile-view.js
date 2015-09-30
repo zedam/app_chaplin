@@ -12,10 +12,14 @@ define(['views/base/view', 'text!templates/profile/profile-view.hbs'], function(
     }
 
     HomeView.prototype.initialize = function() {
-      return this.delegateEvents({
+      this.delegateEvents({
         'click #form-opener': this.formOpening
       });
+      $(this.el).hide();
+      return $(this.el).fadeIn('5000');
     };
+
+    HomeView.prototype.animationDuration = 20000;
 
     HomeView.prototype.autoRender = true;
 

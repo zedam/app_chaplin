@@ -11,6 +11,8 @@ define(['views/base/view', 'text!templates/layout/header-view.hbs'], function(Ba
       return HeaderView.__super__.constructor.apply(this, arguments);
     }
 
+    HeaderView.prototype.animationDuration = 2000;
+
     HeaderView.prototype.template = template;
 
     template = null;

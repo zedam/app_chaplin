@@ -5,6 +5,11 @@ define [
   'use strict'
 
   class ProfileItemView extends View
+    initialize: ->
+
+      $(@el).hide()
+      $(@el).fadeIn('5000')
+
     autoRender: true
 
     template: template

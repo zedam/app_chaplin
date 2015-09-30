@@ -27,14 +27,31 @@ define [
 
     submitForm: (e) ->
       e.preventDefault()
-      @model = new ProfileModel
-        name: $('#form-name').val()
-        color: $('#form-color').val()
-        image: $('#form-image').val()
-      @model.save()
+
+      if $('#form-name').val() != '' && $('#form-color').val() != '' && $('#form-image').val() != ''
+        @model = new ProfileModel
+          name: $('#form-name').val()
+          color: $('#form-color').val()
+          image: $('#form-image').val()
+        @model.save()
+
+        @closeForm()
+
+      else
+        # Method to be improved with any notification system #
+        alert('Please fill all the fields')
 
       @publishEvent 'updateProfiles', @model
 
+    ### Closes the form & cleans it ###
+    closeForm: ->
+      $('#form-opener').fadeIn('slow');
+      $('#form-user').slideUp('fast');
+      $('#form-name').val('')
+      $('#form-color').val('')
+      $('#form-color_shown').val('')
+      $('#form-image').val('')
+      $('#form-image_shown').val('')
 
     ### Fake Select box opening/closing ###
     selectable: (e) ->

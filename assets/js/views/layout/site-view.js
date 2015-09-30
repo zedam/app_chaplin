@@ -21,8 +21,6 @@ define(['views/base/view', 'text!templates/layout/site.hbs'], function(View, tem
 
     SiteView.prototype.container = 'body';
 
-    SiteView.prototype.id = 'site-container';
-
     SiteView.prototype.tagName = 'section';
 
     SiteView.prototype.regions = {

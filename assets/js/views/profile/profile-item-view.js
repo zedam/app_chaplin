@@ -11,6 +11,11 @@ define(['views/base/view', 'text!templates/profile/profile-item-view.hbs'], func
       return ProfileItemView.__super__.constructor.apply(this, arguments);
     }
 
+    ProfileItemView.prototype.initialize = function() {
+      $(this.el).hide();
+      return $(this.el).fadeIn('5000');
+    };
+
     ProfileItemView.prototype.autoRender = true;
 
     ProfileItemView.prototype.template = template;

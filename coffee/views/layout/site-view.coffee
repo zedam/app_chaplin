@@ -10,7 +10,6 @@ define [
       @delegateEvents 'click': @selectable_hidden
 
     container: 'body'
-    id: 'site-container'
     tagName: 'section'
 
     regions:

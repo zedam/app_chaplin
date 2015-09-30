@@ -24,6 +24,11 @@
   <script>
   // Configure the AMD module loader
   requirejs.config({
+    'models/profile/profile-collection': {
+      url: 'http://thuisbar.stage.codedazur.nl/'
+    },
+
+
     // The path where your JavaScripts are located
     baseUrl: './assets/js/',
     // Specify the paths of vendor libraries
@@ -51,7 +56,7 @@
     }
     // For easier development, disable browser caching
     // Of course, this should be removed in a production environment
-    //, urlArgs: 'bust=' +  (new Date()).getTime()
+    , urlArgs: 'bust=' +  (new Date()).getTime()
   });
 
   // Bootstrap the application

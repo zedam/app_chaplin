@@ -37,13 +37,31 @@ define(['views/base/view', 'text!templates/profile/profile-form-view.hbs', 'mode
 
     FormView.prototype.submitForm = function(e) {
       e.preventDefault();
-      this.model = new ProfileModel({
-        name: $('#form-name').val(),
-        color: $('#form-color').val(),
-        image: $('#form-image').val()
-      });
-      this.model.save();
+      if ($('#form-name').val() !== '' && $('#form-color').val() !== '' && $('#form-image').val() !== '') {
+        this.model = new ProfileModel({
+          name: $('#form-name').val(),
+          color: $('#form-color').val(),
+          image: $('#form-image').val()
+        });
+        this.model.save();
+        this.closeForm();
+      } else {
+        alert('Please fill all the fields');
+      }
       return this.publishEvent('updateProfiles', this.model);
+    };
+
+
+    /* Closes the form & cleans it */
+
+    FormView.prototype.closeForm = function() {
+      $('#form-opener').fadeIn('slow');
+      $('#form-user').slideUp('fast');
+      $('#form-name').val('');
+      $('#form-color').val('');
+      $('#form-color_shown').val('');
+      $('#form-image').val('');
+      return $('#form-image_shown').val('');
     };
 
 

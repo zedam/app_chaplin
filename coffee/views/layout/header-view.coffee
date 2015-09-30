@@ -6,5 +6,7 @@ define [
 
   class HeaderView extends BaseView
 
+    animationDuration: 2000
+
     template: template
     template = null

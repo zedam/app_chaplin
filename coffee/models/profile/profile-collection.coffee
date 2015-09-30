@@ -1,7 +1,8 @@
 define [
+  'module'
   'models/base/collection'
   'models/profile/profile-model'
-], (BaseCollection, ProfileModel) ->
+], (module, BaseCollection, ProfileModel) ->
   'use strict'
 
   class ProfileCollection extends BaseCollection
